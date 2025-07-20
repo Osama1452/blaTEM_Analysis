@@ -83,37 +83,35 @@ Plots: Various .png files (e.g., sliding_window_pi.png, 3d_nucleotide_diversity.
 
 Results
 The analysis of TEM-1 β-lactamase sequences has yielded a rich set of results, detailed in the 3d_bar_nucleotide-merged.pdf file. Below is an exhaustive breakdown of the findings:
-1. 3D Plot of Nucleotide Frequency (Page 1)
+1. 3D Plot of Nucleotide Frequency 
 
 This plot provides a three-dimensional representation of nucleotide frequency across the TEM-1 sequences. The visualization highlights the distribution of nucleotides (A, T, C, G) in a spatial context, with peaks indicating regions of high frequency. The presence of "A" annotations suggests a focus on adenine-rich regions, which may correlate with functional or structural significance.
 
-2. Bubble Chart of Sequence Diversity and SNPs (Page 3)
+2. Bubble Chart of Sequence Diversity and SNPs 
 
 A bubble chart illustrates the diversity of sequences and the distribution of single nucleotide polymorphisms (SNPs). The size and position of bubbles reflect the magnitude of diversity and the frequency of SNPs at specific positions. This chart is crucial for identifying hotspots of genetic variation within the TEM-1 gene.
 
-3. 3D Protein Structure Reconstruction (Page 5)
+3. 3D Protein Structure Reconstruction 
 
 The PDF includes a 3D reconstruction of the TEM-1 protein structure, likely derived from cryo-electron microscopy (cryo-EM) data. The irregular, folded appearance with a dense structure suggests a complex protein conformation. This visualization is instrumental for studying the protein's function, its interactions with other molecules (e.g., β-lactam antibiotics), and its spatial arrangement at near-atomic resolution. The repetition of descriptive text emphasizes the reliability of cryo-EM as a technique for such analyses.
 
-4. Distribution of Nucleotides in blaTEM Sequences (Page 9)
+4. Distribution of Nucleotides in blaTEM Sequences 
 
 This section presents a detailed bar graph of nucleotide frequencies across the blaTEM sequences. The graph quantifies the proportion of A, T, C, and G at each position, providing insights into sequence conservation and variability. The extensive numerical data (e.g., "0.0" repetitions) indicates a baseline or low-variance region, with occasional deviations highlighting mutation-prone sites.
 
-5. Bar Graph of Nucleotide Frequencies (Page 11)
+5. Bar Graph of Nucleotide Frequencies 
 
 A dedicated bar graph further elaborates on nucleotide frequencies, offering a clear visual comparison of A, T, C, and G distributions. This complements the 3D plot and helps in pinpointing regions with significant nucleotide bias, which could be linked to evolutionary pressures or functional domains.
 
-6. Distribution of SNPs in Water Sequences (Page 18)
+6. Distribution of SNPs in Water Sequences 
 
 This analysis focuses on the distribution of SNPs, possibly in a water-related context (e.g., aqueous environment effects on sequence stability). The repeated "0%" values suggest minimal SNP presence in certain regions, while deviations indicate areas of potential interest for further investigation into environmental influences on mutation rates.
 
-7. Nucleotide Helix Representation (Page 21)
+7. Nucleotide Helix Representation 
 
 The "Nucleotide Helix" label suggests a helical projection or model of the nucleotide sequence, possibly integrating structural and sequence data. This could represent a secondary structure prediction or a visual aid for understanding the 3D arrangement of the DNA or protein.
 
-Additional Observations
 
-Pages with truncated or sparse data (e.g., Pages 2, 4, 6-8, 10, 12-17, 19-20, 22-26) contain partial visualizations or metadata (e.g., sequence indices, "The" annotations, "# 1" markers), which may indicate incomplete rendering or additional context not fully captured in the OCR output. These pages likely serve as supporting material or placeholders for further detailed analysis.
 
 The results collectively provide a multi-dimensional view of TEM-1 β-lactamase, combining genetic diversity metrics with structural insights, making this dataset valuable for researchers studying antibiotic resistance mechanisms.
 
