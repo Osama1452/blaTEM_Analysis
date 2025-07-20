@@ -40,8 +40,6 @@ pip install -r requirements.txt
 
 Ensure Clustal Omega is installed and the path to clustalo.exe is correctly set in the script (e.g., D:\Osama\biotec\Bioinformatics\mutation_structural_analysis_ncbi\clustal-omega-1.2.2-win64\clustalo.exe).
 
-Set up an NCBI API key or use a valid email address in the script for Entrez queries:
-Entrez.email = "your-email@example.com"
 
 
 
