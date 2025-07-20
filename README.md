@@ -1,6 +1,10 @@
 TEM-1 β-lactamase Mutation and Structural Analysis
+
+
 This repository contains an in-depth bioinformatics analysis of the TEM-1 β-lactamase gene, focusing on mutation detection, structural visualization, nucleotide diversity, and sequence diversity metrics. The project leverages sequence data retrieved from NCBI, performs multiple sequence alignments, calculates nucleotide diversity, and visualizes structural mutations using 3D modeling techniques. The included scripts and visualizations aim to provide a thorough understanding of the genetic and structural variations in TEM-1 β-lactamase sequences.
+
 Overview
+
 The project includes Python scripts and Jupyter notebooks that:
 
 Retrieve TEM-1 sequences from the NCBI database.
@@ -10,8 +14,11 @@ Generate a variety of visualizations, including heatmaps, 3D plots, sliding wind
 Visualize the 3D structure of the TEM-1 protein with highlighted mutation sites using NGL Viewer or similar tools.
 
 The accompanying PDF document (3d_bar_nucleotide-merged.pdf) contains the results of these analyses, including diversity plots, SNP distributions, nucleotide frequency bar graphs, and 3D protein structure reconstructions.
+
 Installation
+
 Dependencies
+
 To run the scripts and reproduce the results, install the following dependencies:
 
 1- Python 3.x
@@ -109,7 +116,12 @@ Additional Observations
 Pages with truncated or sparse data (e.g., Pages 2, 4, 6-8, 10, 12-17, 19-20, 22-26) contain partial visualizations or metadata (e.g., sequence indices, "The" annotations, "# 1" markers), which may indicate incomplete rendering or additional context not fully captured in the OCR output. These pages likely serve as supporting material or placeholders for further detailed analysis.
 
 The results collectively provide a multi-dimensional view of TEM-1 β-lactamase, combining genetic diversity metrics with structural insights, making this dataset valuable for researchers studying antibiotic resistance mechanisms.
+
+
 Contributing
+
 Contributions are welcome! Please fork the repository and submit pull requests with improvements or bug fixes. Ensure to update the documentation and tests accordingly.
+
 License
+
 This project is licensed under the MIT License. See the LICENSE file for details.
