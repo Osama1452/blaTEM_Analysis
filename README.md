@@ -1,5 +1,4 @@
 TEM-1 β-lactamase Mutation and Structural Analysis
-
 This repository contains an in-depth bioinformatics analysis of the TEM-1 β-lactamase gene, focusing on mutation detection, structural visualization, nucleotide diversity, and sequence diversity metrics. The project leverages sequence data retrieved from NCBI, performs multiple sequence alignments, calculates nucleotide diversity, and visualizes structural mutations using 3D modeling techniques. The included scripts and visualizations aim to provide a thorough understanding of the genetic and structural variations in TEM-1 β-lactamase sequences.
 Overview
 The project includes Python scripts and Jupyter notebooks that:
@@ -39,6 +38,7 @@ pip install -r requirements.txt
 
 
 Ensure Clustal Omega is installed and the path to clustalo.exe is correctly set in the script (e.g., D:\Osama\biotec\Bioinformatics\mutation_structural_analysis_ncbi\clustal-omega-1.2.2-win64\clustalo.exe).
+
 
 
 
