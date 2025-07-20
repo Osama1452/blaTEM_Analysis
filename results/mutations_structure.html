@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>TEM-1 β-lactamase 3D Viewer</title>
+  <script src="https://cdn.jsdelivr.net/npm/ngl@latest/dist/ngl.js"></script>
+  <style>
+    body { margin:0; font-family:sans-serif; background:#f0f0f0 }
+    #header { padding:12px; background:#333; color:#fff }
+    #header h1 { margin:0; font-size:1.4em }
+    #header p { margin:4px 0 0; font-size:.95em }
+    #viewport { width:100vw; height:calc(100vh - 60px) }
+  </style>
+</head>
+<body>
+  <div id="header">
+    <h1>TEM-1 Mutational Mapping</h1>
+    <p>Highlighted residues: 44, 66, 104, 130, 166, 237, 238</p>
+  </div>
+  <div id="viewport"></div>
+  <script>
+    const stage = new NGL.Stage("viewport");
+    stage.loadFile("rcsb://1zg4").then(o => {
+      o.addRepresentation("cartoon", { color: "lightgrey" });
+      o.addRepresentation("surface", {color:"lightblue", opacity:0.3});
+      o.addRepresentation("ball+stick", {
+        sele: ":44 or :66 or :104 or :130 or :166 or :237 or :238",
+        color: "crimson",
+        radius: 1.4
+      });
+      stage.autoView();
+    });
+  </script>
+</body>
+</html>

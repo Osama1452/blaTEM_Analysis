@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>TEM-1 β-lactamase 3D Explorer</title>
+  <script src="https://cdn.jsdelivr.net/npm/ngl@latest/dist/ngl.js"></script>
+  <!-- CCapture.js for in-browser video capture (optional) -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/ccapture.js/1.1.0/CCapture.all.min.js"></script>
+  <style>
+    body { margin:0; font-family:sans-serif; background:#f0f0f0; }
+    #header { padding:12px; background:#222; color:#fff; }
+    #header h1 { margin:0; font-size:1.4em }
+    #controls {
+      display:flex; align-items:center; padding:8px;
+      background:#eee; gap:12px;
+    }
+    select, button { font-size:1em; padding:4px 8px; }
+    #viewport { width:100vw; height:calc(100vh - 130px); }
+  </style>
+</head>
+<body>
+
+  <div id="header">
+    <h1>TEM-1 Mutational 3D Explorer</h1>
+    <p>Critical residues: 44, 66, 104, 130, 166, 237, 238</p>
+  </div>
+
+  <div id="controls">
+    <!-- Representation dropdown -->
+    <label for="repSelect">Representation:</label>
+    <select id="repSelect">
+      <option value="cartoon">Cartoon</option>
+      <option value="surface">Surface</option>
+      <option value="licorice">Licorice</option>
+      <option value="ball+stick">Ball + Stick</option>
+      <option value="label">Labels</option>
+    </select>
+
+    <!-- Spin controls -->
+    <button id="spinOn">Start Spin</button>
+    <button id="spinOff">Stop Spin</button>
+
+    <!-- Distance measurement -->
+    <label for="dist1">Res #1:</label>
+    <input id="dist1" type="number" value="44" min="1" style="width:60px">
+    <label for="dist2">Res #2:</label>
+    <input id="dist2" type="number" value="104" min="1" style="width:60px">
+    <button id="measure">Measure</button>
+
+    <!-- Video capture (optional) -->
+    <button id="record">Record 10s</button>
+  </div>
+
+  <div id="viewport"></div>
+
+  <script>
+  // 1. Create the NGL stage
+  const stage = new NGL.Stage("viewport");
+
+  // 2. Load the PDB from RCSB
+  stage.loadFile("rcsb://1zg4").then(comp => {
+    // keep a reference
+    window.component = comp;
+
+    // Add default representations
+    addRepr("cartoon");
+    comp.addRepresentation("surface", { color: "lightblue", opacity: 0.3 });
+    highlightCritical();
+
+    stage.autoView();
+  });
+
+  // 3. Critical residue highlighter
+  const critical = [44,66,104,130,166,237,238];
+  function highlightCritical() {
+    window.component.addRepresentation("ball+stick", {
+      sele: critical.map(i=>"resi "+i).join(" or "),
+      color: "crimson", radius: 1.4
+    });
+    // add text labels
+    critical.forEach(i=>{
+      window.component.addRepresentation("label", {
+        sele: "resi "+i, color: "white",
+        labelType: "residuename", // or "residueindex"
+        fontSize: 12, zOffset: 2
+      });
+    });
+  }
+
+  // 4. Switch representations
+  document.getElementById("repSelect").onchange = e => {
+    const sel = e.target.value;
+    window.component.clearRepresentations();
+    // always re-highlight critical
+    highlightCritical();
+    addRepr(sel);
+  };
+  function addRepr(type) {
+    const opts = { color: "lightgrey" };
+    switch(type) {
+      case "cartoon":     window.component.addRepresentation("cartoon", opts); break;
+      case "surface":     window.component.addRepresentation("surface", opts); break;
+      case "licorice":    window.component.addRepresentation("licorice", opts); break;
+      case "ball+stick":  window.component.addRepresentation("ball+stick", opts); break;
+      case "label":
+        window.component.addRepresentation("label", {
+          sele: "protein", labelType:"residueindex",
+          color:"black", fontSize:10, zOffset:2
+        });
+        break;
+    }
+    stage.autoView();
+  }
+
+  // 5. Spin controls
+  document.getElementById("spinOn").onclick  = ()=> stage.setSpin(true, 0.3);
+  document.getElementById("spinOff").onclick = ()=> stage.setSpin(false);
+
+  // 6. Distance measurement
+  document.getElementById("measure").onclick = () => {
+    const i = +document.getElementById("dist1").value;
+    const j = +document.getElementById("dist2").value;
+    // remove old distances
+    stage.compList[0].removeAllRepresentations("distance");
+    // add a distance rep between CA atoms
+    stage.compList[0].addRepresentation("distance", {
+      sele: `(${i} and .CA) or (${j} and .CA)`,
+      color: "yellow", label: true
+    });
+  };
+
+  // 7. Video capture with CCapture.js (10 sec @ 30 fps)
+  const capturer = new CCapture({ format:'webm', framerate:30 });
+  document.getElementById("record").onclick = () => {
+    capturer.start();
+    stage.setSpin(true, 0.2);
+    // hook into the rendering loop
+    stage.viewerControls.signals.frameRendered.add(() => {
+      capturer.capture(stage.viewer.renderer.domElement);
+    });
+    setTimeout(()=>{
+      capturer.stop();
+      capturer.save();
+      stage.setSpin(false);
+    }, 10000);
+  };
+  </script>
+
+</body>
+</html>
+
