@@ -14,17 +14,27 @@ Installation
 Dependencies
 To run the scripts and reproduce the results, install the following dependencies:
 
-Python 3.x
-Biopython: For sequence handling and NCBI queries (pip install biopython)
-NumPy: For numerical computations (pip install numpy)
-Matplotlib: For plotting and visualizations (pip install matplotlib)
-Pandas: For data manipulation and CSV handling (pip install pandas)
-Scikit-learn: For PCA analysis (pip install scikit-learn)
-UMAP-learn: For dimensionality reduction (pip install umap-learn)
-Seaborn: For enhanced visualizations (pip install seaborn)
-NGLView: For 3D protein structure visualization (pip install nglview)
-IPywidgets: For interactive Jupyter notebook support (pip install ipywidgets)
-Clustal Omega: For multiple sequence alignment (download and install from Clustal Omega)
+1- Python 3.x
+
+2- Biopython: For sequence handling and NCBI queries (pip install biopython)
+
+3- NumPy: For numerical computations (pip install numpy)
+
+4- Matplotlib: For plotting and visualizations (pip install matplotlib)
+
+5- Pandas: For data manipulation and CSV handling (pip install pandas)
+
+6- Scikit-learn: For PCA analysis (pip install scikit-learn)
+
+7- UMAP-learn: For dimensionality reduction (pip install umap-learn)
+
+8- Seaborn: For enhanced visualizations (pip install seaborn)
+
+9- NGLView: For 3D protein structure visualization (pip install nglview)
+
+10- IPywidgets: For interactive Jupyter notebook support (pip install ipywidgets)
+
+11- Clustal Omega: For multiple sequence alignment (download and install from Clustal Omega)
 
 Setup
 
